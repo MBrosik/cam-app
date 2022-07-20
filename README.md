@@ -29,5 +29,5 @@ expo go
 
 ## Technologies
 ![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Expo](https://img.shields.io/badge/expo-14191f?style=for-the-badge&logo=expo&logoColor=bcc3cd)
+![Expo](https://img.shields.io/badge/expo-20232A?style=for-the-badge&logo=expo&logoColor=bcc3cd)
 ![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)

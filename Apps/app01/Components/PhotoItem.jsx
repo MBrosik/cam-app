@@ -17,8 +17,6 @@ export default class PhotoItem extends Component {
    }
 
    pressHandler() {
-      // this.setState({ selected: this.state.selected ? false : true })
-
       this.state.selected = !this.state.selected
       this.setState({})
    }

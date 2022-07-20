@@ -14,17 +14,17 @@ export default class BigPhoto extends Component {
       };
    }
 
-   async sharePhoto(){
+   async sharePhoto() {
       /**@type {MediaLibrary.Asset} */
       const photoData = this.props.route.params.photoData
 
-      if(await Sharing.isAvailableAsync()){
+      if (await Sharing.isAvailableAsync()) {
          Sharing.shareAsync(photoData.uri)
       }
 
    }
 
-   async removePhotoFromDevice(){
+   async removePhotoFromDevice() {
       /**@type {MediaLibrary.Asset} */
       const photoData = this.props.route.params.photoData
       const refresh = this.props.route.params.refresh
@@ -54,7 +54,6 @@ export default class BigPhoto extends Component {
                   <Text style={styles.TouchableText}> DELETE</Text>
                </TouchableOpacity>
             </View>
-            {/* <Text> BigPhoto </Text> */}
          </View>
       );
    }
@@ -62,22 +61,19 @@ export default class BigPhoto extends Component {
 
 const styles = StyleSheet.create({
    container: {
-      // flex: 1,
       display: "flex",
-      // justifyContent: "center",
       alignItems: "center",
       width: myWidth,
       height: myHeight,
       backgroundColor: "#393939"
-
    },
 
-   widthText:{
-      color:"white",
-      width:"100%",
-      textAlign:"center",
-      fontSize:30,
-      paddingHorizontal:50,
+   widthText: {
+      color: "white",
+      width: "100%",
+      textAlign: "center",
+      fontSize: 30,
+      paddingHorizontal: 50,
    },
 
    // -------------------

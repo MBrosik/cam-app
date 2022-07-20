@@ -37,7 +37,6 @@ export default class App01 extends Component {
                   name="Gallery"
                   component={Gallery}
                   options={{
-                     // headerShown: false,
                      headerStyle: {
                         backgroundColor: '#0277bd',
                      },
@@ -48,7 +47,6 @@ export default class App01 extends Component {
                   name="Camera"
                   component={CameraScreen}
                   options={{
-                     // headerShown: false,
                      headerStyle: {
                         backgroundColor: '#0277bd',
                      },
@@ -59,7 +57,6 @@ export default class App01 extends Component {
                   name="BigPhoto"
                   component={BigPhoto}
                   options={{
-                     // headerShown: false,
                      headerStyle: {
                         backgroundColor: '#0277bd',
                      },

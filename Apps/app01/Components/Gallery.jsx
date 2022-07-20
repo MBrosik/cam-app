@@ -25,13 +25,13 @@ export default class Gallery extends Component {
    }
 
    async componentDidMount() {
-      this.setState({ loading: true })
+      this.setState({ loading: true, photos: [] })
       /**
        * Get permisions
        */
       let { status } = await MediaLibrary.requestPermissionsAsync();
       if (status !== 'granted') {
-         alert('brak uprawnień do czytania image-ów z galerii')
+         alert('brak uprawnień do czytania zdjęć z galerii')
       }
 
       // const albumName = "Camera";
@@ -52,7 +52,7 @@ export default class Gallery extends Component {
 
       /**
        * Alert
-       */      
+       */
       ToastAndroid.showWithGravity(
          "Pobrano zdjęcia",
          ToastAndroid.SHORT,
@@ -75,9 +75,9 @@ export default class Gallery extends Component {
       await MediaLibrary.deleteAssetsAsync(table);
       this.setState({ loading: false })
       this.componentDidMount();
-   }   
+   }
 
-   goToCamera(){
+   goToCamera() {
       this.props.navigation.navigate("Camera", { refresh: this.componentDidMount.bind(this) })
    }
 
@@ -117,16 +117,13 @@ export default class Gallery extends Component {
                </View>
 
                <FlatList
-                  // numColumns={GridList == "Grid" ? numColumns : 1}
                   numColumns={numColumns}
-                  // key={GridList == "Grid" ? numColumns : 1}
                   key={numColumns}
                   data={photos}
                   renderItem={({ item, index }) => (
                      <PhotoItem
                         ref={el => itemRefs.push(el)}
                         photoData={item}
-                        // width={GridList == "Grid" ? myWidth / numColumns * 0.9 : myWidth * 0.9}
                         width={myWidth / numColumns * 0.9}
                         height={GridList == "Grid" ? myWidth / numColumns * 0.9 : myHeight * 0.2}
                         parentNavigation={this.props.navigation}
@@ -134,7 +131,7 @@ export default class Gallery extends Component {
                      />
                   )}
                />
-               
+
             </View>
 
          </View>
@@ -144,10 +141,6 @@ export default class Gallery extends Component {
 
 const styles = StyleSheet.create({
    container: {
-      // flex: 1,
-      // display: "flex",
-      // justifyContent: "center",
-      // alignItems: "center",
       width: myWidth,
       height: myHeight,
       backgroundColor: "#393939"
@@ -178,13 +171,10 @@ const styles = StyleSheet.create({
    // Photo container
    // -------------------
    photoContainer: {
-      // width: "100%",
       width: myWidth,
       height: myHeight * 0.75,
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      // flexDirection: "row"
-
    }
 })

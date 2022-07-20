@@ -7,12 +7,10 @@ const myHeight = Dimensions.get("window").height
 
 /**@typedef {import('react-native').StyleProp<import('react-native').ViewStyle>} styleDef*/
 
-// {[x in keyof styleDef]: styleDef[x]}}
-
 /**@extends {Component<{source, pressHandler, myStyles?:styleDef}>} */
 export default class CircleButton extends Component {
    render() {
-      const { source, pressHandler, myStyles={} } = this.props      
+      const { source, pressHandler, myStyles = {} } = this.props
 
       return (
          <TouchableOpacity
@@ -25,7 +23,7 @@ export default class CircleButton extends Component {
    }
 }
 
-const styles = StyleSheet.create({ 
+const styles = StyleSheet.create({
    touchableStyle: {
       display: "flex",
       justifyContent: "center",

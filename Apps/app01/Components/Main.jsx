@@ -39,14 +39,10 @@ export default class Main extends Component {
 
 const styles = StyleSheet.create({
    container: {
-      // width: '100%',
-      // height: '100%',
       flex: 1,
       display: "flex",
-      // flexDirection: "row",
       justifyContent: "center",
       alignItems: "center",
-      // backgroundColor: "#eb8334"
       backgroundColor: "#393939"
    },
    titleView: {
@@ -56,10 +52,7 @@ const styles = StyleSheet.create({
       alignItems: "flex-end",
    },
    titleText: {
-      // width: '100%',
-      // height: '100%',
-      // fontSize: 80,
-      fontSize: myWidth*0.15,
+      fontSize: myWidth * 0.15,
       color: "white"
    },
    descriptionView: {
@@ -69,7 +62,7 @@ const styles = StyleSheet.create({
       padding: 25
    },
    descriptionText: {
-      fontSize: myWidth*0.05,
+      fontSize: myWidth * 0.05,
       textAlign: "center",
       color: "white"
    }

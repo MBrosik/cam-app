@@ -28,8 +28,8 @@ export default class CameraScreen extends Component {
       this.state = {
          takingPhoto: false,
 
-         hasCameraPermission: null,         // przydzielone uprawnienia do używania kamery
-         type: Camera.Constants.Type.back,  // typ kamery    
+         hasCameraPermission: null,
+         type: Camera.Constants.Type.back,
 
          // @ts-ignore
 
@@ -41,7 +41,7 @@ export default class CameraScreen extends Component {
             return [strTab.join(""), el[1]]
          }),
 
-         pos: new Animated.Value(myHeight),  //startowa pozycja y wysuwanego View     
+         pos: new Animated.Value(myHeight),
 
          ratios: { "4:3": "4:3", "16:9": "16:9" },
          selectedRatio: "4:3",
@@ -204,7 +204,7 @@ export default class CameraScreen extends Component {
             <View style={styles.container}>
                <Camera
                   ref={ref => {
-                     this.camera = ref; // Uwaga: referencja do kamery używana później                            
+                     this.camera = ref;
                   }}
                   style={{ ...styles.cameraStyle, opacity: takingPhoto ? 0.4 : 1 }}
 
@@ -223,7 +223,7 @@ export default class CameraScreen extends Component {
                         Container for Buttons
                      */}
 
-                     <View style={{ width: "100%", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-around", padding: 10 }}>
+                     <View style={{ width: myWidth, display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-around", padding: 10 }}>
                         <CircleButton source={rotate} pressHandler={this.rotateCamera.bind(this)} />
                         <CircleButton
                            source={cross}
@@ -249,12 +249,12 @@ export default class CameraScreen extends Component {
                   {
                      transform: [
                         { translateY: this.state.pos }
-                        // { translateY: 0 }
                      ]
                   }]}>
 
-                  <Text style={styles.setText}>SETTINGS</Text>
-
+                  <View style={styles.setTextView}>
+                     <Text style={styles.setText}>SETTINGS</Text>
+                  </View>
                   <SafeAreaView style={styles.setRadioCont}>
                      <ScrollView >
                         {constantsArr.map((item, index) => (
@@ -294,10 +294,13 @@ export default class CameraScreen extends Component {
 
 const styles = StyleSheet.create({
    container: {
-      width: myWidth,
-      height: myHeight,
+      height: "100%",
+      width: "100%",
       backgroundColor: "#393939",
       position: "relative",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
    },
 
    // ------------------------
@@ -322,9 +325,8 @@ const styles = StyleSheet.create({
    // camera
    // ------------------------
    cameraStyle: {
-      width: myWidth,
-      height: myWidth * 1.333,
-      // opacity:1
+      height: "100%",
+      aspectRatio: 3 / 4,
    },
 
    // ------------------------
@@ -333,11 +335,17 @@ const styles = StyleSheet.create({
    settings: {
       width: 200,
       position: "absolute",
-      bottom: 0,
+      top: 0,
       left: 0,
-      // right: 0,
       backgroundColor: "#3939397c",
-      height: myHeight,
+      height: "100%",
+      display: "flex",
+   },
+   setTextView: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "10%",
    },
    setText: {
       textAlign: "center",
@@ -345,9 +353,6 @@ const styles = StyleSheet.create({
       fontSize: myWidth * 0.05,
    },
    setRadioCont: {
-      // height: myHeight - 300,
-      height: "80%",
-      // height: 40,
-      paddingTop: 15
+      height: "90%",
    }
 })
